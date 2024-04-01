@@ -32,7 +32,7 @@ pip install -r requirements.txt
 To start the web server, run the script:
 
 ```bash
-python main.py
+python app.py
 ```
 
 Once the server is running, you can access the API endpoint /holidays via a GET request to receive the current year's holiday data.
