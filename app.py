@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route('/holidays', methods=['GET'])
 def get_holidays():
     start_time = time.time()
-    url = f'https://www.officialgazette.gov.ph/nationwide-holidays/{ datetime.now().year }/'
+    url = f'https://www.officialgazette.gov.ph/nationwide-holidays/'
     
     domain = url.split("//")[-1].split("/")[0]
     ip_address = socket.gethostbyname(domain)
