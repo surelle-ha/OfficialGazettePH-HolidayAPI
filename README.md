@@ -1,6 +1,4 @@
-# README for Web Server API
-
-## Project Overview
+# Official Gazette PH Holiday API
 
 This is a Python-based web server API developed using Flask. It's designed to scrape data about nationwide holidays from the "Official Gazette" website of the Philippines for the current year and return this information in a JSON format.
 
@@ -19,9 +17,41 @@ This is a Python-based web server API developed using Flask. It's designed to sc
 - Requests
 - BeautifulSoup4
 
-## Installation
+## Deployment
 
-First, ensure you have Python 3.x installed. Then, install the required packages using pip:
+### Tunnel Local via Ngrok (Optional)
+
+Ngrok is a cross-platform tool that creates secure tunnels between your local development server and the internet, allowing you to expose locally hosted services to the web. It’s often used for testing and development purposes.
+
+##### 1. Download Ngrok
+
+[![Ngrok](https://img.shields.io/badge/Ngrok-purple?style=for-the-badge&logo=ngrok)](https://ngrok.com/download)
+
+##### 2. Register and get your Auth token
+
+##### 3. Run this script on your Ngrok directory.
+
+    ngrok config add-authtoken <token>
+
+##### 4. Start a tunnel
+
+    ngrok http <port>
+
+### Or Deploy via Render (Optional)
+
+Create an account on Render and setup environment variable before you click the button below.
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/surelle-ha/OfficialGazettePH-HolidayAPI.git)
+
+## Local Installation
+
+First, ensure you have Python 3.x installed. Then, clone the repository from Github.
+
+```git
+git clone https://github.com/surelle-ha/OfficialGazettePH-HolidayAPI.git
+```
+
+Next, install the required packages using pip:
 
 ```bash
 pip install -r requirements.txt

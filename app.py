@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import requests
 from bs4 import BeautifulSoup
 import time
@@ -21,9 +21,12 @@ def get_holidays(year=datetime.now().year):
     except socket.gaierror:
         return jsonify({'error': 'Failed to resolve domain name'})
 
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
-    }
+    # Using client's user-agent
+    user_agent = request.headers.get('User-Agent')
+    if not user_agent:
+        user_agent = 'Mozilla/5.0 (compatible; CustomBot/0.1)'  # Default user-agent if none provided
+    
+    headers = {'User-Agent': user_agent}
     
     try:
         response = requests.get(url, headers=headers, timeout=10)
