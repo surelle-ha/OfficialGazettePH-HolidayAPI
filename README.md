@@ -24,7 +24,7 @@ This is a Python-based web server API developed using Flask. It's designed to sc
 First, ensure you have Python 3.x installed. Then, install the required packages using pip:
 
 ```bash
-pip install Flask requests beautifulsoup4
+pip install -r requirements.txt
 ```
 
 ## Usage
@@ -71,3 +71,4 @@ GET /holidays
 ## Notes
 
 - The web server scrapes data in real-time; response times may vary based on network conditions and the source website's response time.
+- This web server scrapes data from [Philippine Official Gazette](https://www.officialgazette.gov.ph/nationwide-holidays/)

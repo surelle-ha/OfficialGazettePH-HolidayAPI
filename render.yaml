@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: api.holiday.ph
+    runtime: python
+    repo: https://github.com/surelle-ha/OfficialGazettePH-HolidayAPI
+    plan: free
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
