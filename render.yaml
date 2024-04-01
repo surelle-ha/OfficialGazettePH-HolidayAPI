@@ -6,4 +6,4 @@ services:
     plan: free
     branch: main
     buildCommand: pip install -r requirements.txt
-    startCommand: python main.py
+    startCommand: gunicorn app:app
