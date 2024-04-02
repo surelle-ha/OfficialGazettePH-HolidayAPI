@@ -4,7 +4,7 @@ This is a Python-based web server API developed using Flask. It's designed to sc
 
 ## Features
 
-- Scraping holiday data from a specified URL.
+- Scraping holiday data from a Official Gazette PH.
 - Categorization of holidays into 'Regular' and 'Special (Non-Working)'.
 - Returning detailed JSON responses including event names, dates, and types.
 - Performance metrics such as request timestamp and response duration.
