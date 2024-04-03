@@ -1,11 +1,18 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
 import requests
 from bs4 import BeautifulSoup
 import time
 import socket
 from datetime import datetime
+import random
+
+# Import the user-agent generator function
+from user_agent_generator import get_user_agents
 
 app = Flask(__name__)
+
+# Fetch user agents and store them
+user_agents = get_user_agents()
 
 @app.route('/', methods=['GET'])
 @app.route('/holidays', methods=['GET'])
@@ -21,12 +28,10 @@ def get_holidays(year=datetime.now().year):
     except socket.gaierror:
         return jsonify({'error': 'Failed to resolve domain name'})
 
-    # Using client's user-agent
-    user_agent = request.headers.get('User-Agent')
-    if not user_agent:
-        user_agent = 'Mozilla/5.0 (compatible; CustomBot/0.1)'  # Default user-agent if none provided
-    
-    headers = {'User-Agent': user_agent}
+    # Choose a random user-agent for each request
+    headers = {
+        'User-Agent': random.choice(user_agents)
+    }
     
     try:
         response = requests.get(url, headers=headers, timeout=10)
