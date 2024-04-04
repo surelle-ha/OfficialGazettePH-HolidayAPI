@@ -6,12 +6,10 @@ import socket
 from datetime import datetime
 import random
 
-# Import the user-agent generator function
 from user_agent_generator import get_user_agents
 
 app = Flask(__name__)
 
-# Fetch user agents and store them
 user_agents = get_user_agents()
 
 @app.route('/', methods=['GET'])
@@ -28,7 +26,6 @@ def get_holidays(year=datetime.now().year):
     except socket.gaierror:
         return jsonify({'error': 'Failed to resolve domain name'})
 
-    # Choose a random user-agent for each request
     headers = {
         'User-Agent': random.choice(user_agents)
     }
